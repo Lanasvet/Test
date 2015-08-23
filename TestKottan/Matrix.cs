@@ -27,33 +27,25 @@ namespace TestKottan
 
        
         public void ShowSourceMatrix()
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                int j;
-                for (j = 0; j < 4; j++)
-                {
-                    Console.Write(sourceMatrix[i][j] + "X" + (j + 1) + " + ");
-                }
-                Console.Write(" = " + sourceMatrix[i][j]);
-                Console.WriteLine();
-            }
+        {            
+            Console.WriteLine("-3x1 + 4x2 + x3 + 4x4 = -1");
+            Console.WriteLine("1x2 + 3x3 + 2x4 = -1");
+            Console.WriteLine("4x1 - 2x3 - 3x4 = 4");
+            Console.WriteLine("1000x1 + 3x2 + x3 - 5x4 = -2");
         }
 
         public void ShowTempMatrix()
-        {
-            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        {            
             for (int z = 0; z < 4; z++)
             {
                 int j;
                 for (j = 0; j < 4; j++)
                 {
-                    Console.Write(tempMatrix[z][j] + "\t\t ");
+                    Console.Write("{0, 15}", tempMatrix[z][j]);
                 }
-                Console.Write("|\t " + tempMatrix[z][j]);
+                Console.Write("{0, 15}", tempMatrix[z][j]);
                 Console.WriteLine();
-            }
-            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            }            
         }
        
         //нахождение опорного элемента в строке 
@@ -125,38 +117,8 @@ namespace TestKottan
             double multiplier_instead = tempRow[column];
             MultiplyLineByTheNumber(tempRow, multiplier_temp);
             MultiplyLineByTheNumber(insteadRow, multiplier_instead);
-            tempMatrix[row] = SubtractRow(row, tempRow, insteadRow);  
-
+            tempMatrix[row] = SubtractRow(row, tempRow, insteadRow); 
         }
-
-       
-        //сложение строк
-        public void AdditionLines(int[] Line, int row)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                tempMatrix[row][i] = tempMatrix[row][i] + Line[i];
-            }            
-        }
-
-        public void ShowLine(int[] Line)
-        {
-            for(int i =0; i < 5; i++)
-            {
-                Console.Write(Line[i] + "\t ");
-            }
-            Console.WriteLine("-----------------------");
-        }
-
-        public void ShowLine_1(int i)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                Console.Write(tempMatrix[i][j] + "\t ");
-            }
-            Console.WriteLine("-----------------------");
-        }
-
       
     }
 }
